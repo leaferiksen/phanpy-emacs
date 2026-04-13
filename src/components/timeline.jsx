@@ -51,10 +51,11 @@ const paginationNextSelector =
 const itemsSelector = '.timeline-item, .timeline-item-alt';
 
 // Standalone hotkey hooks for timeline navigation
-export function useJHotkeys(scrollableRef) {
+export function useNHotkeys(scrollableRef) {
   return useHotkeys(
-    'j, shift+j',
+    'n, shift+n',
     (e, handler) => {
+      console.log('n/shift+n pressed!', e.key, e.shiftKey, handler.shift);
       // Fix bug: shift+j is fired even when j is pressed due to useKey: true
       if (e.shiftKey !== handler.shift) return;
 
@@ -106,14 +107,14 @@ export function useJHotkeys(scrollableRef) {
     {
       useKey: true,
       ignoreEventWhen: (e) =>
-        e.metaKey || e.ctrlKey || e.altKey || e.key.toLowerCase() !== 'j',
+        e.metaKey || e.ctrlKey || e.altKey || e.key.toLowerCase() !== 'n',
     },
   );
 }
 
-export function useKHotkeys(scrollableRef) {
+export function usePHotkeys(scrollableRef) {
   return useHotkeys(
-    'k, shift+k',
+    'p, shift+p',
     (e, handler) => {
       // Fix bug: shift+k is fired even when k is pressed due to useKey: true
       if (e.shiftKey !== handler.shift) return;
@@ -165,7 +166,7 @@ export function useKHotkeys(scrollableRef) {
     {
       useKey: true,
       ignoreEventWhen: (e) =>
-        e.metaKey || e.ctrlKey || e.altKey || e.key.toLowerCase() !== 'k',
+        e.metaKey || e.ctrlKey || e.altKey || e.key.toLowerCase() !== 'p',
     },
   );
 }
@@ -324,8 +325,8 @@ function Timeline({
     },
   );
 
-  const jRef = useJHotkeys(scrollableRef);
-  const kRef = useKHotkeys(scrollableRef);
+  const nRef = useNHotkeys(scrollableRef);
+  const pRef = usePHotkeys(scrollableRef);
   const oRef = useOHotkeys();
 
   const showNewPostsIndicator =
@@ -491,8 +492,8 @@ function Timeline({
         }`}
         ref={(node) => {
           scrollableRef.current = node;
-          jRef.current = node;
-          kRef.current = node;
+          nRef.current = node;
+          pRef.current = node;
           oRef.current = node;
           dotRef.current = node;
         }}

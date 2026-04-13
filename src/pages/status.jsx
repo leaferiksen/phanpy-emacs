@@ -860,7 +860,7 @@ function StatusThread({ id, closeLink = '/', instance: propInstance }) {
   );
 
   useHotkeys(
-    'j',
+    'n',
     () => {
       const activeStatus = document.activeElement.closest(
         '.status-link, .status-focus',
@@ -900,12 +900,12 @@ function StatusThread({ id, closeLink = '/', instance: propInstance }) {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'j',
+        e.key.toLowerCase() !== 'n',
     },
   );
 
   useHotkeys(
-    'k',
+    'p',
     () => {
       const activeStatus = document.activeElement.closest(
         '.status-link, .status-focus',
@@ -944,7 +944,7 @@ function StatusThread({ id, closeLink = '/', instance: propInstance }) {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'k',
+        e.key.toLowerCase() !== 'p',
     },
   );
 

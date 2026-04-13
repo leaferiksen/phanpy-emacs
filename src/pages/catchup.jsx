@@ -802,8 +802,8 @@ function Catchup() {
   const [showHelp, setShowHelp] = useState(false);
 
   const itemsSelector = '.catchup-list > li > a';
-  const jRef = useHotkeys(
-    'j',
+  const nRef = useHotkeys(
+    'n',
     () => {
       const activeItem = document.activeElement.closest(itemsSelector);
       const activeItemRect = activeItem?.getBoundingClientRect();
@@ -848,12 +848,12 @@ function Catchup() {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'j',
+        e.key.toLowerCase() !== 'n',
     },
   );
 
-  const kRef = useHotkeys(
-    'k',
+  const pRef = useHotkeys(
+    'p',
     () => {
       const activeItem = document.activeElement.closest(itemsSelector);
       const activeItemRect = activeItem?.getBoundingClientRect();
@@ -898,7 +898,7 @@ function Catchup() {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'k',
+        e.key.toLowerCase() !== 'p',
     },
   );
 
@@ -992,8 +992,8 @@ function Catchup() {
     <div
       ref={(node) => {
         scrollableRef.current = node;
-        jRef.current = node;
-        kRef.current = node;
+        nRef.current = node;
+        pRef.current = node;
         hlRef.current = node;
         escRef.current = node;
         dotRef.current = node;

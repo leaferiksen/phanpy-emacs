@@ -30,8 +30,8 @@ import NavMenu from './nav-menu';
 import Status from './status';
 import {
   TimelineItem,
-  useJHotkeys,
-  useKHotkeys,
+  useNHotkeys,
+  usePHotkeys,
   useOHotkeys,
 } from './timeline';
 
@@ -349,8 +349,8 @@ function Timeline2({
     { leading: true },
   );
 
-  const jRef = useJHotkeys(scrollableRef);
-  const kRef = useKHotkeys(scrollableRef);
+  const nRef = useNHotkeys(scrollableRef);
+  const pRef = usePHotkeys(scrollableRef);
   const oRef = useOHotkeys();
 
   const headerRef = useRef();
@@ -519,8 +519,8 @@ function Timeline2({
         class="deck-container timeline-2-container"
         ref={(node) => {
           scrollableRef.current = node;
-          jRef.current = node;
-          kRef.current = node;
+          nRef.current = node;
+          pRef.current = node;
           oRef.current = node;
         }}
         tabIndex="-1"

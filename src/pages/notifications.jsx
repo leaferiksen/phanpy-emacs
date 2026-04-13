@@ -538,8 +538,8 @@ function Notifications({ columnMode }) {
   }, []);
 
   const itemsSelector = '.notification';
-  const jRef = useHotkeys(
-    'j',
+  const nRef = useHotkeys(
+    'n',
     () => {
       const activeItem = document.activeElement.closest(itemsSelector);
       const activeItemRect = activeItem?.getBoundingClientRect();
@@ -575,12 +575,12 @@ function Notifications({ columnMode }) {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'j',
+        e.key.toLowerCase() !== 'n',
     },
   );
 
-  const kRef = useHotkeys(
-    'k',
+  const pRef = useHotkeys(
+    'p',
     () => {
       // focus on previous status after active item
       const activeItem = document.activeElement.closest(itemsSelector);
@@ -617,7 +617,7 @@ function Notifications({ columnMode }) {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'k',
+        e.key.toLowerCase() !== 'p',
     },
   );
 
@@ -661,8 +661,8 @@ function Notifications({ columnMode }) {
       class="deck-container"
       ref={(node) => {
         scrollableRef.current = node;
-        jRef.current = node;
-        kRef.current = node;
+        nRef.current = node;
+        pRef.current = node;
         oRef.current = node;
       }}
       tabIndex="-1"

@@ -216,8 +216,8 @@ function Search({ columnMode, ...props }) {
   );
 
   const itemsSelector = '.timeline > li > a, .hashtag-list > li > a';
-  const jRef = useHotkeys(
-    'j',
+  const nRef = useHotkeys(
+    'n',
     () => {
       const activeItem = document.activeElement.closest(itemsSelector);
       const activeItemRect = activeItem?.getBoundingClientRect();
@@ -253,12 +253,12 @@ function Search({ columnMode, ...props }) {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'j',
+        e.key.toLowerCase() !== 'n',
     },
   );
 
-  const kRef = useHotkeys(
-    'k',
+  const pRef = useHotkeys(
+    'p',
     () => {
       // focus on previous status after active item
       const activeItem = document.activeElement.closest(itemsSelector);
@@ -295,7 +295,7 @@ function Search({ columnMode, ...props }) {
         e.ctrlKey ||
         e.altKey ||
         e.shiftKey ||
-        e.key.toLowerCase() !== 'k',
+        e.key.toLowerCase() !== 'p',
     },
   );
 
@@ -308,8 +308,8 @@ function Search({ columnMode, ...props }) {
       tabIndex="-1"
       ref={(node) => {
         scrollableRef.current = node;
-        jRef.current = node;
-        kRef.current = node;
+        nRef.current = node;
+        pRef.current = node;
       }}
     >
       <div class="timeline-deck deck">
